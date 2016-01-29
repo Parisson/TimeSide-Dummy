@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - sudo pip install docker-compose
+
+script:
+  - sudo docker run -it parisson/timeside:latest-dev python -c"import timeside.core; timeside.core.list_processors()"
