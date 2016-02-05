@@ -1,5 +1,3 @@
-sudo: required
-
 install:
   - sudo apt-get install -y linux-image-virtual kernel linux-image-extra-virtual
   - curl -sSL https://get.docker.com/ | sudo sh
