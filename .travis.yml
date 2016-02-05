@@ -3,8 +3,8 @@ language: python
 services:
   - docker
 
-before_install:
-  - sudo pip install docker-compose
+#before_install:
+#  - sudo pip install docker-compose
 
 script:
   - docker-compose run app python -c"import timeside.core; timeside.core.list_processors()"
