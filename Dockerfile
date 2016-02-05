@@ -25,6 +25,6 @@ ADD . /srv/src/timeside-dummy/
 
 
 # Install TimeSide Dummy
-RUN pip install .
+RUN pip install -e .
 
 
