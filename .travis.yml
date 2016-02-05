@@ -1,10 +1,14 @@
 sudo: required
-language: python
-services:
-  - docker
 
-#before_install:
-#  - sudo pip install docker-compose
+install:
+  - sudo apt-get install -y linux-image-virtual kernel linux-image-extra-virtual
+  - curl -sSL https://get.docker.com/ | sudo sh
+  - sudo pip install docker-compose
+
+before_install:
+  - docker --version
+  - docker-compose --version
+  #- sudo pip install docker-compose
 
 script:
   - docker-compose run app python -c"import timeside.core; timeside.core.list_processors()"
