@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2007-2009 Guillaume Pellerin <yomguy@parisson.com>
+# Copyright (c) 2007-2016 Guillaume Pellerin <yomguy@parisson.com>
+# Copyright (c) 2013-2016 Thomas Fillon <thomas@parisson.com>
 
 # This file is part of TimeSide.
 
@@ -17,11 +18,13 @@
 # You should have received a copy of the GNU General Public License
 # along with TimeSide.  If not, see <http://www.gnu.org/licenses/>.
 
-# Author: Guillaume Pellerin <yomguy@parisson.com>
+# Authors:
+# - Guillaume Pellerin <yomguy@parisson.com>
+# - Thomas Fillon <thomas@parisson.com>
 
 from timeside.core import implements, interfacedoc
 from timeside.core.analyzer import Analyzer
-from timeside.core.api import IValueAnalyzer
+from timeside.core.api import IAnalyzer
 import numpy
 
 
@@ -35,7 +38,7 @@ class DummyAnalyzer(Analyzer):
               samplerate=None,
               blocksize=None,
               totalframes=None):
-        super(MeanDCShift, self).setup(
+        super(DummyAnalyzer, self).setup(
             channels, samplerate, blocksize, totalframes)
         self.values = numpy.array([0])
 
