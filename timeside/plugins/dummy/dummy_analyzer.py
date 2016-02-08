@@ -27,8 +27,8 @@ import numpy
 
 class DummyAnalyzer(Analyzer):
 
-    """A dummy analyzer returning random sample value from audio streaming"""
-    implements(IValueAnalyzer)
+    """A dummy analyzer returning random samples from audio frames"""
+    implements(IAnalyzer)
 
     @interfacedoc
     def setup(self, channels=None,
@@ -42,7 +42,7 @@ class DummyAnalyzer(Analyzer):
     @staticmethod
     @interfacedoc
     def id():
-        return "dummy_analyzer"
+        return "dummy"
 
     @staticmethod
     @interfacedoc
@@ -52,7 +52,7 @@ class DummyAnalyzer(Analyzer):
     @staticmethod
     @interfacedoc
     def unit():
-        return "No unit"
+        return "None"
 
     def process(self, frames, eod=False):
         size = frames.size
