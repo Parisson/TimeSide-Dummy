@@ -17,6 +17,7 @@ FROM parisson/timeside:latest-dev
 
 MAINTAINER Guillaume Pellerin <yomguy@parisson.com>, Thomas Fillon <thomas@parisson.com>
 
+RUN if [ ! -d /srv/src/ ]; then mkdir /srv/src/; fi
 RUN mkdir /srv/src/timeside-dummy
 WORKDIR /srv/src/timeside-dummy
 
@@ -26,5 +27,3 @@ ADD . /srv/src/timeside-dummy/
 
 # Install TimeSide Dummy
 RUN pip install -e .
-
-

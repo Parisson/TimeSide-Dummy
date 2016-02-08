@@ -25,9 +25,9 @@ from timeside.core.api import IValueAnalyzer
 import numpy
 
 
-class MeanDCShift(Analyzer):
+class DummyAnalyzer(Analyzer):
 
-    """Mean DC shift analyzer"""
+    """A dummy analyzer returning random sample value from audio streaming"""
     implements(IValueAnalyzer)
 
     @interfacedoc
@@ -42,25 +42,26 @@ class MeanDCShift(Analyzer):
     @staticmethod
     @interfacedoc
     def id():
-        return "my_analyzer"
+        return "dummy_analyzer"
 
     @staticmethod
     @interfacedoc
     def name():
-        return "My Great Analyzer"
+        return "Dummy analyzer"
 
     @staticmethod
     @interfacedoc
     def unit():
-        return "%"
+        return "No unit"
 
     def process(self, frames, eod=False):
-        if frames.size:
-            self.values = numpy.append(self.values, numpy.mean(frames))
+        size = frames.size
+        if size:
+            index = numpy.random.randint(0, size, 1)
+            self.values = numpy.append(self.values, frames[index])
         return frames, eod
 
     def post_process(self):
-        dc_result = self.new_result(data_mode='value', time_mode='global')
-        dc_result.data_object.value = numpy.round(
-            numpy.mean(100 * self.values), 3)
-        self.add_result(dc_result)
+        result = self.new_result(data_mode='value', time_mode='global')
+        result.data_object.value = self.values
+        self.add_result(result)
