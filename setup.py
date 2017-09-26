@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-from setuptools import setup, find_packages
+from setuptools import setup
 import sys
 from setuptools.command.test import test as TestCommand
 
@@ -45,14 +45,12 @@ KEYWORDS = 'audio analysis features extraction MIR transcoding graph visualize p
 
 setup(
     # Package
-    namespace_packages = ['timeside', 'timeside.plugins'],
-    packages=find_packages(),
+    name='TimeSide-Dummy',
     install_requires=[
         'timeside',
         # Dependencies for Dummy analyzers
         ],
     # PyPI
-    name='TimeSide-Dummy',
     url='https://github.com/Parisson/TimeSide-Dummy',
     description="Dummy TimeSide plugins",
     long_description=open('README.rst').read(),
