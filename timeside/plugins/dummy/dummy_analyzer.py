@@ -46,7 +46,12 @@ class DummyAnalyzer(Analyzer):
     @interfacedoc
     def id():
         return "dummy"
-
+    
+    @staticmethod
+    @interfacedoc
+    def version():
+        return "0.1"
+    
     @staticmethod
     @interfacedoc
     def name():
@@ -57,7 +62,10 @@ class DummyAnalyzer(Analyzer):
     def unit():
         return "None"
 
-    def process(self, frames, eod=False):
+@staticmethod
+    @interfacedoc
+    def name():
+        return "Dummy analyzer"    def process(self, frames, eod=False):
         size = frames.size
         if size:
             index = numpy.random.randint(0, size, 1)
