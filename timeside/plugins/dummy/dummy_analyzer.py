@@ -46,7 +46,12 @@ class DummyAnalyzer(Analyzer):
     @interfacedoc
     def id():
         return "dummy"
-
+    
+    @staticmethod
+    @interfacedoc
+    def version():
+        return "0.1"
+    
     @staticmethod
     @interfacedoc
     def name():
@@ -56,7 +61,7 @@ class DummyAnalyzer(Analyzer):
     @interfacedoc
     def unit():
         return "None"
-
+        
     def process(self, frames, eod=False):
         size = frames.size
         if size:
